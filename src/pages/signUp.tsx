@@ -50,10 +50,9 @@ const SignUp: React.FC = () => {
         }
     };
 
-
     return (
         <div className="w-screen h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-blue-700 text-black">
-            <div className="bg-white bg-opacity-10 rounded-xl p-4 sm:px-10 w-80 sm:w-96 h-[500px] flex flex-col items-center justify-center space-y-2 relative">
+            <div className="bg-white bg-opacity-10 rounded-xl p-4 sm:px-10 w-80 sm:w-96 h-auto flex flex-col items-center justify-center space-y-2 relative">
                 <img src="/img/logo.png" alt="logo" className="w-40" />
                 <h1 className="text-lg font-semibold text-white">Sign Up</h1>
                 <div className="w-full h-0.5 bg-white opacity-20"></div>
@@ -61,7 +60,9 @@ const SignUp: React.FC = () => {
                     <TextBox caption="Username" value={username} placeholder="Enter username" onChange={(e) => setUsername(e)} />
                     <TextBox caption="Email" value={email} placeholder="Enter email" onChange={(e) => setEmail(e)} />
                     <TextBox caption="Date of Birth" value={dob} placeholder="Enter date of birth" type="date" onChange={(e) => setDob(e)} />
-                    <ImageUpload onImageSelect={setImageFile} />
+                    <div className="mt-4">
+                        <ImageUpload onImageSelect={setImageFile} />
+                    </div>
                     <div className="flex flex-col items-center justify-center mt-4">
                         <Button caption="SIGN UP" onClick={handleSignUp} width="w-full" background="bg-red-500" />
                         <Link href="/signIn">
