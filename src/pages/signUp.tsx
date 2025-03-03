@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import ImageUpload from "@/components/ImageUpload";
 import { createUser } from "@/services/userService";
-import { CreateUserInterface } from "@/interfaces/userInterfaces";
+import { CreateUserInterface, UserInterface } from "@/interfaces/userInterfaces";
 import Button from "@/components/Button";
 import TextBox from "@/components/TextBox";
 import Spinner from "@/components/Spinner";
@@ -40,7 +40,8 @@ const SignUp: React.FC = () => {
             DOB: new Date(dob),
         };
         try {
-            await createUser(userData, imageFile);
+            console.log(userData);
+            const response: UserInterface = await createUser(userData, imageFile);
             toast.success("Sign up successful");
             router.push("/signIn");
         } catch (error) {
